@@ -115,13 +115,31 @@ npm run dev
 
 ## MCP Configuration
 
-To connect an MCP to this server, add the following configuration:
+To connect to this MCP server from different clients, use the appropriate configuration below:
+
+### Cursor, Windsurf, and other SSE-supporting clients
 
 ```json
 {
   "mcpServers": {
     "mcp-server": {
       "url": "http://localhost:4005/sse?API_KEY={{your_api_key_here}}"
+    }
+  }
+}
+```
+
+### Claude Desktop
+
+```json
+{
+  "mcpServers": {
+    "mcp-server": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "http://localhost:4005/sse?API_KEY={{your_api_key_here}}"
+      ]
     }
   }
 }
